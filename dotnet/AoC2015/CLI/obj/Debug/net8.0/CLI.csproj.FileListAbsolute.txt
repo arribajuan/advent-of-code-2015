@@ -1,0 +1,15 @@
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/bin/Debug/net8.0/CLI
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/bin/Debug/net8.0/CLI.deps.json
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/bin/Debug/net8.0/CLI.runtimeconfig.json
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/bin/Debug/net8.0/CLI.dll
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/bin/Debug/net8.0/CLI.pdb
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/obj/Debug/net8.0/CLI.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/obj/Debug/net8.0/CLI.AssemblyInfoInputs.cache
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/obj/Debug/net8.0/CLI.AssemblyInfo.cs
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/obj/Debug/net8.0/CLI.csproj.CoreCompileInputs.cache
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/obj/Debug/net8.0/CLI.sourcelink.json
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/obj/Debug/net8.0/CLI.dll
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/obj/Debug/net8.0/refint/CLI.dll
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/obj/Debug/net8.0/CLI.pdb
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/obj/Debug/net8.0/CLI.genruntimeconfig.cache
+/Users/jmartinez/Code/GitHub/advent-of-code-2015/dotnet/AoC2015/CLI/obj/Debug/net8.0/ref/CLI.dll
