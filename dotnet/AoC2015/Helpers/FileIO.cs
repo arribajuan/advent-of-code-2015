@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Helpers;
 
 public class FileIO
@@ -6,9 +8,10 @@ public class FileIO
     {
         List<string> result = new List<string>();
 
-        if (fileLocation != "")
+        if (File.Exists(fileLocation))
         {
-            result.Add("Test");
+            var fileLines = File.ReadAllLines(fileLocation, Encoding.Default);
+            result.AddRange(fileLines);
         }
 
         return result;
