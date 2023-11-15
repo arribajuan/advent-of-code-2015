@@ -4,10 +4,9 @@ public class Day02
 {
     public PackageInformation CalculateSquareFeetFromDataFile()
     {
-        var piTotal = new PackageInformation();
-        
         var totalArea = 0;
-        
+        var totalLength = 0;
+
         var day02DataFilePath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/day02-data.txt";
         var fio = new FileIO();
         var packages = fio.LoadTextLinesFromFile(day02DataFilePath);
@@ -20,10 +19,15 @@ public class Day02
             var height = Convert.ToInt32(dimensions[2]);
 
             var pi = CalculateSquareFeet(length, width, height);
-            totalArea += pi.SquareFootageNeededToWrap;
+            totalArea += pi.TotalPaper;
+            totalLength += pi.TotalRibbon;
         }
 
-        piTotal.SquareFootageNeededToWrap = totalArea;
+        var piTotal = new PackageInformation()
+        {
+            TotalPaper = totalArea,
+            TotalRibbon = totalLength
+        };
         
         return piTotal;
     }
@@ -37,10 +41,21 @@ public class Day02
 
         var packageArea = sides.Sum() * 2;
         var slackArea = sides.Min();
-        var totalArea = packageArea + slackArea;
 
-        var pi = new PackageInformation();
-        pi.SquareFootageNeededToWrap = totalArea;
+        var dimensions = new List<int>();
+        dimensions.Add(length);
+        dimensions.Add(width);
+        dimensions.Add(height);
+
+        dimensions.Sort();
+        var smallestPerimeter = (dimensions[0] * 2) + (dimensions[1] * 2);
+        var packageVolume = dimensions.Aggregate((a, x) => a * x);
+
+        var pi = new PackageInformation()
+        {
+            TotalPaper = packageArea + slackArea,
+            TotalRibbon = smallestPerimeter + packageVolume
+        };
         
         return pi;
     }
@@ -48,7 +63,6 @@ public class Day02
 
 public class PackageInformation
 {
-    public int SquareFootageNeededToWrap = 0;
-    public int LengthFeetNeededForRibbon = 0;
-    public int PackageVolume = 0;
+    public int TotalPaper = 0;
+    public int TotalRibbon = 0;
 }
