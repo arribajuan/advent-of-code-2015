@@ -2,25 +2,52 @@ namespace Helpers;
 
 public class FileIOTest
 {
+    
     [Fact]
-    public void TestNonExistentFile()
+    public void Test_LoadTextFromFile_NoFile()
     {
-        List<string> emptyData = new List<string>();
+        var emptyData = string.Empty;
         
-        FileIO fio = new FileIO();
-        List<string> resultData = fio.LoadTextLinesFromFile("");
+        var fio = new FileIO();
+        var resultData = fio.LoadTextFromFile("");
+        
+        Assert.Equal(emptyData, resultData);
     }
-
+    
     [Fact]
-    public void TestFile()
+    public void Test_LoadTextFromFile()
     {
-        string testDataPath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/test-data.txt";
+        var testDataPath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/test-data.txt";
         
-        FileIO fio = new FileIO();
-        List<string> resultData = fio.LoadTextLinesFromFile(testDataPath);
+        var fio = new FileIO();
+        var resultData = fio.LoadTextFromFile(testDataPath);
         
         Assert.NotEmpty(resultData);
+        Assert.Equal(13, resultData.Length);
+    }
+    
+    
+    [Fact]
+    public void Test_LoadTextLinesFromFile_NoFile()
+    {
+        var emptyData = new List<string>();
+        
+        var fio = new FileIO();
+        var resultData = fio.LoadTextLinesFromFile("");
+        
+        Assert.Equal(emptyData, resultData);
     }
 
-
+    [Fact]
+    public void Test_LoadTextLinesFromFile()
+    {
+        var testDataPath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/test-data.txt";
+        
+        var fio = new FileIO();
+        var resultData = fio.LoadTextLinesFromFile(testDataPath);
+        
+        Assert.NotEmpty(resultData);
+        Assert.Equal(2, resultData.Count);
+    }
+    
 }
