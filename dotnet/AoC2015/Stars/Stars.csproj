@@ -15,4 +15,15 @@
       </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="assets\data\day01-data.txt" />
+      <Content Include="assets\data\day01-data.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Helpers\Helpers.csproj" />
+    </ItemGroup>
+
 </Project>
