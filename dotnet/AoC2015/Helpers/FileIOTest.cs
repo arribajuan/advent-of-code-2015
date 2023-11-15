@@ -4,7 +4,7 @@ public class FileIOTest
 {
     
     [Fact]
-    public void Test_LoadTextFromFile_NoFile()
+    public void Test_FileIO_LoadTextFromFile_NoFile()
     {
         var emptyData = string.Empty;
         
@@ -15,7 +15,7 @@ public class FileIOTest
     }
     
     [Fact]
-    public void Test_LoadTextFromFile()
+    public void Test_FileIO_LoadTextFromFile()
     {
         var testDataPath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/test-data.txt";
         
@@ -28,7 +28,7 @@ public class FileIOTest
     
     
     [Fact]
-    public void Test_LoadTextLinesFromFile_NoFile()
+    public void Test_FileIO_LoadTextLinesFromFile_NoFile()
     {
         var emptyData = new List<string>();
         
@@ -39,7 +39,7 @@ public class FileIOTest
     }
 
     [Fact]
-    public void Test_LoadTextLinesFromFile()
+    public void Test_FileIO_LoadTextLinesFromFile()
     {
         var testDataPath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/test-data.txt";
         
