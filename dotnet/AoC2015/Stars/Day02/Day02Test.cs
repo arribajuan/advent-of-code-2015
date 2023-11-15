@@ -9,7 +9,9 @@ public class Day02Test
     public void Test_Day2_CalculateFinalFloor_SampleDirections(int length, int width, int height, int totalPaper)
     {
         var d02 = new Day02();
-        Assert.Equal(totalPaper , d02.CalculateSquareFeet(length, width, height));
+        var packageInformation = d02.CalculateSquareFeet(length, width, height);
+
+        Assert.Equal(totalPaper , packageInformation.SquareFootageNeededToWrap);
     } 
     
 }

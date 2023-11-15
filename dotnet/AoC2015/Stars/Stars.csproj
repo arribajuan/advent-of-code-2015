@@ -20,6 +20,10 @@
       <Content Include="assets\data\day01-data.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <None Remove="assets\data\day02-data.txt" />
+      <Content Include="assets\data\day02-data.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>

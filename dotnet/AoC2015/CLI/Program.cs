@@ -16,6 +16,18 @@ Console.WriteLine("-----------------------------");
 
 #endregion
 
+#region Day 2
+
+var d02 = new Stars.Day02.Day02();
+var d02PackageInformation = d02.CalculateSquareFeetFromDataFile();
+
+Console.WriteLine("-----------------------------");
+Console.WriteLine("Day 2");
+Console.WriteLine($" Star 1 - total area = {d02PackageInformation.SquareFootageNeededToWrap}");
+Console.WriteLine("-----------------------------");
+
+#endregion
+
 
 
 
