@@ -5,6 +5,17 @@ namespace Stars.Day04;
 
 public class Day04
 {
+    public int MineAdventCoinFromFile()
+    {
+        var day04DataFilePath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/day04-data.txt";
+        var fio = new FileIO();
+        var secretKey = fio.LoadTextFromFile(day04DataFilePath);
+
+        var results = MineAdventCoin(secretKey);
+
+        return results;
+    }
+    
     public int MineAdventCoin(string secretKey)
     {
         for (var i = 1; i < int.MaxValue; i++)
