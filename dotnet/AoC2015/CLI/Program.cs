@@ -44,10 +44,12 @@ Console.WriteLine("-----------------------------");
 #region Day 4
 
 var d04 = new Stars.Day04.Day04();
-var d04Result1 = d04.MineAdventCoinFromFile();
+var d04Result1 = d04.MineAdventCoin5FromFile();
+var d04Result2 = d04.MineAdventCoin6FromFile();
 
 Console.WriteLine("Day 4");
 Console.WriteLine($" Star 1 - lowest positive number = {d04Result1}");
+Console.WriteLine($" Star 2 - lowest positive number = {d04Result2}");
 Console.WriteLine("-----------------------------");
 
 #endregion

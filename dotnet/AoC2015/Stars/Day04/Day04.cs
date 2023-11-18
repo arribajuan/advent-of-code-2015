@@ -5,18 +5,29 @@ namespace Stars.Day04;
 
 public class Day04
 {
-    public int MineAdventCoinFromFile()
+    public int MineAdventCoin5FromFile()
     {
         var day04DataFilePath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/day04-data.txt";
         var fio = new FileIO();
         var secretKey = fio.LoadTextFromFile(day04DataFilePath);
 
-        var results = MineAdventCoin(secretKey);
+        var results = MineAdventCoin5(secretKey);
 
         return results;
     }
     
-    public int MineAdventCoin(string secretKey)
+    public int MineAdventCoin6FromFile()
+    {
+        var day04DataFilePath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/day04-data.txt";
+        var fio = new FileIO();
+        var secretKey = fio.LoadTextFromFile(day04DataFilePath);
+
+        var results = MineAdventCoin6(secretKey);
+
+        return results;
+    }
+    
+    public int MineAdventCoin5(string secretKey)
     {
         for (var i = 1; i < int.MaxValue; i++)
         {
@@ -25,6 +36,24 @@ public class Day04
             if (md5Hash.Length >= 5)
             {
                 if (md5Hash.Substring(0, 5) == "00000")
+                {
+                    return i;
+                }
+            }
+        }
+
+        return 0;
+    }
+    
+    public int MineAdventCoin6(string secretKey)
+    {
+        for (var i = 1; i < int.MaxValue; i++)
+        {
+            var md5Hash = ComputeMD5Hash(secretKey + i);
+
+            if (md5Hash.Length >= 6)
+            {
+                if (md5Hash.Substring(0, 6) == "000000")
                 {
                     return i;
                 }
