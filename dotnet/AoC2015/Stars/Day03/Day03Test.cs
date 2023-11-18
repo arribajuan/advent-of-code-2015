@@ -10,7 +10,7 @@ public class Day03Test
     public void Test_Day3_ExecuteMoves_SampleNoves(string moves, int housesWithAtLeastOnePresent)
     {
         var d03 = new Day03();
-        var result = d03.ExecuteMoves(moves);
+        var result = d03.ExecuteMoves(moves, 0);
 
         Assert.Equal(housesWithAtLeastOnePresent, result.HousesWithAtLeastOnePresent);
     }
@@ -22,7 +22,7 @@ public class Day03Test
     public void Test_Day3_ExecuteMovesRoboSanta_SampleNoves(string moves, int housesWithAtLeastOnePresent)
     {
         var d03 = new Day03();
-        var result = d03.ExecuteMovesRoboSanta(moves);
+        var result = d03.ExecuteMoves(moves, 1);
 
         Assert.Equal(housesWithAtLeastOnePresent, result.HousesWithAtLeastOnePresent);
     }

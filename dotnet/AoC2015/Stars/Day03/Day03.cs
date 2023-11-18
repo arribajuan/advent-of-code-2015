@@ -2,120 +2,62 @@ namespace Stars.Day03;
 
 public class Day03
 {
-    public DeliveryResults ExecuteMovesFromFile()
+    public DeliveryResults ExecuteMovesFromFile(int roboSantaCount)
     {
         var day03DataFilePath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/day03-data.txt";
         var fio = new FileIO();
         var moves = fio.LoadTextFromFile(day03DataFilePath);
 
-        var results = ExecuteMoves(moves);
+        var results = ExecuteMoves(moves, roboSantaCount);
 
         return results;
     }
-    
-    public DeliveryResults ExecuteMovesRoboSantaFromFile()
-    {
-        var day03DataFilePath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/day03-data.txt";
-        var fio = new FileIO();
-        var moves = fio.LoadTextFromFile(day03DataFilePath);
 
-        var results = ExecuteMovesRoboSanta(moves);
-
-        return results;
-    }
-    
-    public DeliveryResults ExecuteMoves(string moves)
+    public DeliveryResults ExecuteMoves(string moves, int roboSantaCount)
     {
-        var xCoordinate = 0;
-        var yCoordinate = 0;
         var deliveryLog = new Dictionary<string, int>();
-
-        DeliverToCoordinate(xCoordinate, yCoordinate, ref deliveryLog);
         
+        var totalDeliveryAgents = roboSantaCount + 1;   // Santa is always one delivery agent
+        var coordinateList = new List<DeliveryCoordinate>();
+        for (int i = 0; i < totalDeliveryAgents; i++)
+        {
+            coordinateList.Add(new DeliveryCoordinate());
+        }
+        
+        // Everyone delivers in the initial location
+        foreach (DeliveryCoordinate coordinate in coordinateList)
+        {
+            DeliverToCoordinate(coordinate.X, coordinate.Y, ref deliveryLog);
+        }
+
+        var index = 0;
         foreach (var c in moves)
         {
             switch (c)
             {
                 case '<':
-                    xCoordinate--;
+                    coordinateList[index].X--;
                     break;
                 case '>':
-                    xCoordinate++;
+                    coordinateList[index].X++;
                     break;
                 case 'v':
-                    yCoordinate--;
+                    coordinateList[index].Y--;
                     break;
                 case '^':
-                    yCoordinate++;
+                    coordinateList[index].Y++;
                     break;
             }
             
-            DeliverToCoordinate(xCoordinate, yCoordinate, ref deliveryLog);
-        }
+            DeliverToCoordinate(coordinateList[index].X, coordinateList[index].Y, ref deliveryLog);
 
-        var results = new DeliveryResults()
-        {
-            HousesWithAtLeastOnePresent = deliveryLog.Count
-        };
-        
-        return results;
-    }
-    
-    public DeliveryResults ExecuteMovesRoboSanta(string moves)
-    {
-        var xCoordinateSanta = 0;
-        var yCoordinateSanta = 0;
-        var xCoordinateRoboSanta = 0;
-        var yCoordinateRoboSanta = 0;
-        var deliveryLog = new Dictionary<string, int>();
-
-        DeliverToCoordinate(xCoordinateSanta, yCoordinateSanta, ref deliveryLog);
-        DeliverToCoordinate(xCoordinateRoboSanta, yCoordinateRoboSanta, ref deliveryLog);
-
-        bool flag = true;
-        foreach (var c in moves)
-        {
-            if (flag)
+            if (index == totalDeliveryAgents - 1)
             {
-                switch (c)
-                {
-                    case '<':
-                        xCoordinateSanta--;
-                        break;
-                    case '>':
-                        xCoordinateSanta++;
-                        break;
-                    case 'v':
-                        yCoordinateSanta--;
-                        break;
-                    case '^':
-                        yCoordinateSanta++;
-                        break;
-                }
-                
-                DeliverToCoordinate(xCoordinateSanta, yCoordinateSanta, ref deliveryLog);
-                flag = false;
+                index = 0;
             }
             else
             {
-                switch (c)
-                {
-                    case '<':
-                        xCoordinateRoboSanta--;
-                        break;
-                    case '>':
-                        xCoordinateRoboSanta++;
-                        break;
-                    case 'v':
-                        yCoordinateRoboSanta--;
-                        break;
-                    case '^':
-                        yCoordinateRoboSanta++;
-                        break;
-                }
-                
-                DeliverToCoordinate(xCoordinateRoboSanta, yCoordinateRoboSanta, ref deliveryLog);
-                flag = true;
+                index++;
             }
         }
 
@@ -141,4 +83,10 @@ public class Day03
 public class DeliveryResults
 {
     public int HousesWithAtLeastOnePresent = 0;
+}
+
+public class DeliveryCoordinate
+{
+    public int X = 0;
+    public int Y = 0;
 }
