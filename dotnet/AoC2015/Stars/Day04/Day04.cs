@@ -5,55 +5,33 @@ namespace Stars.Day04;
 
 public class Day04
 {
-    public int MineAdventCoin5FromFile()
+    public int MineAdventCoinFromFile(int leadingZeroesRequired)
     {
         var day04DataFilePath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/day04-data.txt";
         var fio = new FileIO();
         var secretKey = fio.LoadTextFromFile(day04DataFilePath);
 
-        var results = MineAdventCoin5(secretKey);
+        var results = MineAdventCoin(secretKey, leadingZeroesRequired);
 
         return results;
     }
     
-    public int MineAdventCoin6FromFile()
+    public int MineAdventCoin(string secretKey, int leadingZeroesRequired)
     {
-        var day04DataFilePath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/day04-data.txt";
-        var fio = new FileIO();
-        var secretKey = fio.LoadTextFromFile(day04DataFilePath);
-
-        var results = MineAdventCoin6(secretKey);
-
-        return results;
-    }
-    
-    public int MineAdventCoin5(string secretKey)
-    {
-        for (var i = 1; i < int.MaxValue; i++)
+        var sb = new StringBuilder();
+        for (var i = 0; i < leadingZeroesRequired; i++)
         {
-            var md5Hash = ComputeMD5Hash(secretKey + i);
-
-            if (md5Hash.Length >= 5)
-            {
-                if (md5Hash.Substring(0, 5) == "00000")
-                {
-                    return i;
-                }
-            }
+            sb.Append("0");
         }
-
-        return 0;
-    }
-    
-    public int MineAdventCoin6(string secretKey)
-    {
+        var leadingZeroString = sb.ToString();
+        
         for (var i = 1; i < int.MaxValue; i++)
         {
             var md5Hash = ComputeMD5Hash(secretKey + i);
 
-            if (md5Hash.Length >= 6)
+            if (md5Hash.Length >= leadingZeroesRequired)
             {
-                if (md5Hash.Substring(0, 6) == "000000")
+                if (md5Hash.Substring(0, leadingZeroesRequired) == leadingZeroString)
                 {
                     return i;
                 }

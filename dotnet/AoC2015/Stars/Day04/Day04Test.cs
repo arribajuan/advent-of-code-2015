@@ -8,7 +8,7 @@ public class Day04Test
     public void Test_Day4_MineAdventCoin_SampleSecretKeys(string secretKey, int lowestPositiveNumber)
     {
         var d04 = new Day04();
-        var result = d04.MineAdventCoin5(secretKey);
+        var result = d04.MineAdventCoin(secretKey, 5);
 
         Assert.Equal(lowestPositiveNumber, result);
     }
