@@ -2,7 +2,16 @@ namespace Stars.Day03;
 
 public class Day03
 {
+    public DeliveryResults ExecuteMovesFromFile()
+    {
+        var day03DataFilePath = AppDomain.CurrentDomain.BaseDirectory + "assets/data/day03-data.txt";
+        var fio = new FileIO();
+        var moves = fio.LoadTextFromFile(day03DataFilePath);
 
+        var results = ExecuteMoves(moves);
+
+        return results;
+    }
     
     public DeliveryResults ExecuteMoves(string moves)
     {
