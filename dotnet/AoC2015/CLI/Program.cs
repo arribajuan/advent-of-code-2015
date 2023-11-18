@@ -53,3 +53,16 @@ Console.WriteLine($" Star 2 - lowest positive number = {d04Result2}");
 Console.WriteLine("-----------------------------");
 
 #endregion
+
+#region Day 5
+
+var d05 = new Stars.Day05.Day05();
+var d05Result1 = d05.TestStringFromFile();
+
+Console.WriteLine("Day 5");
+Console.WriteLine($" Star 1 - nice strings = {d05Result1}");
+Console.WriteLine("-----------------------------");
+
+#endregion
+
+
