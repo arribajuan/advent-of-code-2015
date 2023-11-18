@@ -32,11 +32,13 @@ Console.WriteLine("-----------------------------");
 #region Day 3
 
 var d03 = new Stars.Day03.Day03();
-var d03Result = d03.ExecuteMovesFromFile();
+var d03Result1 = d03.ExecuteMovesFromFile();
+var d03Result2 = d03.ExecuteMovesRoboSantaFromFile();
 
 Console.WriteLine("-----------------------------");
 Console.WriteLine("Day 3");
-Console.WriteLine($" Star 1 - houses with at least one present = {d03Result.HousesWithAtLeastOnePresent}");
+Console.WriteLine($" Star 1 - houses with at least one present = {d03Result1.HousesWithAtLeastOnePresent}");
+Console.WriteLine($" Star 2 - houses with at least one present = {d03Result2.HousesWithAtLeastOnePresent}");
 Console.WriteLine("-----------------------------");
 
 #endregion
